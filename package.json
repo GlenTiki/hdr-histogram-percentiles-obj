@@ -1,0 +1,22 @@
+{
+  "name": "hdr-histogram-precentiles-obj",
+  "version": "1.0.0",
+  "description": "A little lib for turning native-hdr-histograms to objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekemkid/hdr-histogram-precentiles-obj.git"
+  },
+  "keywords": [
+    "native-hdr-histogram"
+  ],
+  "author": "Glen Keane <glenkeane.94@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thekemkid/hdr-histogram-precentiles-obj/issues"
+  },
+  "homepage": "https://github.com/thekemkid/hdr-histogram-precentiles-obj#readme"
+}
