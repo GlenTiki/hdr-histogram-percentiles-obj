@@ -1,5 +1,5 @@
 {
-  "name": "hdr-histogram-precentiles-obj",
+  "name": "hdr-histogram-percentiles-obj",
   "version": "1.0.0",
   "description": "A little lib for turning native-hdr-histograms to objects",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thekemkid/hdr-histogram-precentiles-obj.git"
+    "url": "git+https://github.com/thekemkid/hdr-histogram-percentiles-obj.git"
   },
   "keywords": [
     "native-hdr-histogram"
@@ -16,7 +16,7 @@
   "author": "Glen Keane <glenkeane.94@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thekemkid/hdr-histogram-precentiles-obj/issues"
+    "url": "https://github.com/thekemkid/hdr-histogram-percentiles-obj/issues"
   },
-  "homepage": "https://github.com/thekemkid/hdr-histogram-precentiles-obj#readme"
+  "homepage": "https://github.com/thekemkid/hdr-histogram-percentiles-obj#readme"
 }
