@@ -4,7 +4,7 @@
   "description": "A little lib for turning native-hdr-histograms to objects",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard && tap ./test.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/thekemkid/hdr-histogram-percentiles-obj/issues"
   },
-  "homepage": "https://github.com/thekemkid/hdr-histogram-percentiles-obj#readme"
+  "homepage": "https://github.com/thekemkid/hdr-histogram-percentiles-obj#readme",
+  "devDependencies": {
+    "native-hdr-histogram": "^0.3.2",
+    "standard": "^7.1.2",
+    "tap": "^6.1.1"
+  }
 }

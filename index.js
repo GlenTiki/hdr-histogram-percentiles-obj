@@ -9,8 +9,10 @@ const percentiles = [
 ]
 
 module.exports.histAsObj = function (hist, total) {
+  const mean = Math.ceil(hist.mean() * 100) / 100
   const result = {
-    average: Math.ceil(hist.mean() * 100) / 100,
+    average: mean, // added for backward compat with wrk
+    mean: mean,
     stddev: Math.ceil(hist.stddev() * 100) / 100,
     min: hist.min(),
     max: hist.max()
@@ -24,11 +26,10 @@ module.exports.histAsObj = function (hist, total) {
 }
 
 module.exports.addPercentiles = function (hist, result) {
-   percentiles.forEach(function (perc) {
-     const key = ('p' + perc).replace('.', '')
-     result[key] = hist.percentile(perc)
+  percentiles.forEach(function (perc) {
+    const key = ('p' + perc).replace('.', '')
+    result[key] = hist.percentile(perc)
   })
 
   return result
 }
-
