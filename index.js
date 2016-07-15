@@ -1,3 +1,5 @@
+'use strict'
+
 const percentiles = [
   50,
   75,

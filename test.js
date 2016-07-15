@@ -1,3 +1,5 @@
+'use strict'
+
 const test = require('tap').test
 const Histogram = require('native-hdr-histogram')
 const histPercentileObj = require('./')
