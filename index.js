@@ -1,6 +1,6 @@
 'use strict'
 
-const percentiles = [
+const percentiles = module.exports.percentiles = [
   50,
   75,
   90,
