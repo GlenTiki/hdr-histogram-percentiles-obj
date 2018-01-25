@@ -70,4 +70,3 @@ function getStdDeviation (hist) {
   }
   return hist.getStdDeviation()
 }
-
