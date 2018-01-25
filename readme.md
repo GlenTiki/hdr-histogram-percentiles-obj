@@ -6,13 +6,31 @@
 npm install --save hdr-histogram-percentiles-obj
 ```
 
-## Usage
+## Usage with native-hdr-histogram
 
 ```js
 const histPercentileObj = require('hdr-histogram-percentiles-obj')
 const Histogram = require('native-hdr-histogram')
 
 const histogram = new Histogram(1, 100)
+const total = 0
+// record some histogram data...
+// total++...
+
+const result = histPercentileObj.histAsObj(histogram, total)
+const resultWithPercentiles = histPercentileObj.addPercentiles(histogram, histPercentileObj.histAsObj(histogram, total))
+```
+
+## Usage with hdr-histogram-js
+
+```js
+const histPercentileObj = require('hdr-histogram-percentiles-obj')
+const Histogram = require('hdr-histogram-js')
+
+const histogram = hdr.build({
+  lowestDiscernibleValue: 1,
+  highestTrackableValue: 100
+})
 const total = 0
 // record some histogram data...
 // total++...

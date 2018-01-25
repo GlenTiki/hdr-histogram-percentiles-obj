@@ -11,13 +11,13 @@ const percentiles = module.exports.percentiles = [
 ]
 
 module.exports.histAsObj = function (hist, total) {
-  const mean = Math.ceil(hist.mean() * 100) / 100
+  const mean = Math.ceil(getMean(hist) * 100) / 100
   const result = {
     average: mean, // added for backward compat with wrk
     mean: mean,
-    stddev: Math.ceil(hist.stddev() * 100) / 100,
-    min: hist.min(),
-    max: hist.max()
+    stddev: Math.ceil(getStdDeviation(hist) * 100) / 100,
+    min: getMin(hist),
+    max: getMax(hist)
   }
 
   if (typeof total === 'number') {
@@ -30,8 +30,44 @@ module.exports.histAsObj = function (hist, total) {
 module.exports.addPercentiles = function (hist, result) {
   percentiles.forEach(function (perc) {
     const key = ('p' + perc).replace('.', '')
-    result[key] = hist.percentile(perc)
+    if (typeof hist.percentile === 'function') {
+      result[key] = hist.percentile(perc)
+    } else if (typeof hist.getValueAtPercentile === 'function') {
+      result[key] = hist.getValueAtPercentile(perc)
+    }
   })
 
   return result
 }
+
+function getMean (hist) {
+  if (typeof hist.mean === 'function') {
+    return hist.mean()
+  }
+  if (typeof hist.getMean === 'function') {
+    return hist.getMean()
+  }
+  return hist.mean
+}
+
+function getMin (hist) {
+  if (typeof hist.min === 'function') {
+    return hist.min()
+  }
+  return hist.minNonZeroValue
+}
+
+function getMax (hist) {
+  if (typeof hist.max === 'function') {
+    return hist.max()
+  }
+  return hist.maxValue
+}
+
+function getStdDeviation (hist) {
+  if (typeof hist.stddev === 'function') {
+    return hist.stddev()
+  }
+  return hist.getStdDeviation()
+}
+
