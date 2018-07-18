@@ -31,7 +31,7 @@ module.exports.histAsObj = function (hist, total) {
 
 module.exports.addPercentiles = function (hist, result) {
   percentiles.forEach(function (perc) {
-    const key = ('p' + perc).replace('.', '')
+    const key = ('p' + perc).replace('.', '_')
     if (typeof hist.percentile === 'function') {
       result[key] = hist.percentile(perc)
     } else if (typeof hist.getValueAtPercentile === 'function') {

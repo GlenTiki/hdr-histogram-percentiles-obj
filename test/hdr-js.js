@@ -5,7 +5,7 @@ const hdr = require('hdr-histogram-js')
 const histPercentileObj = require('../')
 
 test('should return a valid hist as object', (t) => {
-  t.plan(16)
+  t.plan(18)
   const histogram = hdr.build({
     lowestDiscernibleValue: 1,
     highestTrackableValue: 100
@@ -30,13 +30,15 @@ test('should return a valid hist as object', (t) => {
   const withPercentiles = histPercentileObj.addPercentiles(histogram, result)
   t.ok(withPercentiles)
   t.type(withPercentiles.average, 'number')
+  t.type(withPercentiles.p2_5, 'number')
   t.type(withPercentiles.p50, 'number')
   t.type(withPercentiles.p75, 'number')
   t.type(withPercentiles.p90, 'number')
+  t.type(withPercentiles.p97_5, 'number')
   t.type(withPercentiles.p99, 'number')
-  t.type(withPercentiles.p999, 'number')
-  t.type(withPercentiles.p9999, 'number')
-  t.type(withPercentiles.p99999, 'number')
+  t.type(withPercentiles.p99_9, 'number')
+  t.type(withPercentiles.p99_99, 'number')
+  t.type(withPercentiles.p99_999, 'number')
 })
 
 test('should return expected numbers', (t) => {
@@ -63,13 +65,13 @@ test('should return expected numbers', (t) => {
   const withPercentiles = histPercentileObj.addPercentiles(histogram, result)
   t.ok(withPercentiles)
   t.equal(withPercentiles.average, 5)
-  t.equal(withPercentiles.p25, 4)
+  t.equal(withPercentiles.p2_5, 4)
   t.equal(withPercentiles.p50, 5)
   t.equal(withPercentiles.p75, 6)
   t.equal(withPercentiles.p90, 6)
-  t.equal(withPercentiles.p975, 6)
+  t.equal(withPercentiles.p97_5, 6)
   t.equal(withPercentiles.p99, 6)
-  t.equal(withPercentiles.p999, 6)
-  t.equal(withPercentiles.p9999, 6)
-  t.equal(withPercentiles.p99999, 6)
+  t.equal(withPercentiles.p99_9, 6)
+  t.equal(withPercentiles.p99_99, 6)
+  t.equal(withPercentiles.p99_999, 6)
 })

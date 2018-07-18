@@ -31,9 +31,9 @@ test('should return a valid hist as object', (t) => {
   t.type(withPercentiles.p75, 'number')
   t.type(withPercentiles.p90, 'number')
   t.type(withPercentiles.p99, 'number')
-  t.type(withPercentiles.p999, 'number')
-  t.type(withPercentiles.p9999, 'number')
-  t.type(withPercentiles.p99999, 'number')
+  t.type(withPercentiles.p99_9, 'number')
+  t.type(withPercentiles.p99_99, 'number')
+  t.type(withPercentiles.p99_999, 'number')
 })
 
 test('should return expected numbers', (t) => {
@@ -61,7 +61,7 @@ test('should return expected numbers', (t) => {
   t.equal(withPercentiles.p75, 5)
   t.equal(withPercentiles.p90, 6)
   t.equal(withPercentiles.p99, 6)
-  t.equal(withPercentiles.p999, 6)
-  t.equal(withPercentiles.p9999, 6)
-  t.equal(withPercentiles.p99999, 6)
+  t.equal(withPercentiles.p99_9, 6)
+  t.equal(withPercentiles.p99_99, 6)
+  t.equal(withPercentiles.p99_999, 6)
 })
