@@ -40,7 +40,7 @@ test('should return a valid hist as object', (t) => {
 })
 
 test('should return expected numbers', (t) => {
-  t.plan(16)
+  t.plan(18)
   const histogram = hdr.build({
     lowestDiscernibleValue: 1,
     highestTrackableValue: 10
@@ -63,9 +63,11 @@ test('should return expected numbers', (t) => {
   const withPercentiles = histPercentileObj.addPercentiles(histogram, result)
   t.ok(withPercentiles)
   t.equal(withPercentiles.average, 5)
+  t.equal(withPercentiles.p25, 4)
   t.equal(withPercentiles.p50, 5)
   t.equal(withPercentiles.p75, 6)
   t.equal(withPercentiles.p90, 6)
+  t.equal(withPercentiles.p975, 6)
   t.equal(withPercentiles.p99, 6)
   t.equal(withPercentiles.p999, 6)
   t.equal(withPercentiles.p9999, 6)
