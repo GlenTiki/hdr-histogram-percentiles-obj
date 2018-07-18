@@ -11,7 +11,9 @@
     "url": "git+https://github.com/thekemkid/hdr-histogram-percentiles-obj.git"
   },
   "keywords": [
-    "native-hdr-histogram"
+    "hdr-histogram",
+    "hdr-histogram-js",
+    "percentiles"
   ],
   "author": "Glen Keane <glenkeane.94@gmail.com>",
   "license": "MIT",
@@ -23,7 +25,6 @@
   ],
   "homepage": "https://github.com/thekemkid/hdr-histogram-percentiles-obj#readme",
   "devDependencies": {
-    "native-hdr-histogram": "^0.4.6",
     "standard": "^10.0.3",
     "pre-commit": "^1.1.3",
     "tap": "^11.0.1"
