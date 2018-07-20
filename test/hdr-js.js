@@ -5,7 +5,7 @@ const hdr = require('hdr-histogram-js')
 const histPercentileObj = require('../')
 
 test('should return a valid hist as object', (t) => {
-  t.plan(18)
+  t.plan(24)
   const histogram = hdr.build({
     lowestDiscernibleValue: 1,
     highestTrackableValue: 100
@@ -30,7 +30,13 @@ test('should return a valid hist as object', (t) => {
   const withPercentiles = histPercentileObj.addPercentiles(histogram, result)
   t.ok(withPercentiles)
   t.type(withPercentiles.average, 'number')
+  t.type(withPercentiles.p0_001, 'number')
+  t.type(withPercentiles.p0_01, 'number')
+  t.type(withPercentiles.p0_1, 'number')
+  t.type(withPercentiles.p1, 'number')
   t.type(withPercentiles.p2_5, 'number')
+  t.type(withPercentiles.p10, 'number')
+  t.type(withPercentiles.p25, 'number')
   t.type(withPercentiles.p50, 'number')
   t.type(withPercentiles.p75, 'number')
   t.type(withPercentiles.p90, 'number')

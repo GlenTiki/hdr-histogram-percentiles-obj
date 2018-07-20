@@ -1,7 +1,13 @@
 'use strict'
 
 const percentiles = module.exports.percentiles = [
+  0.001,
+  0.01,
+  0.1,
+  1,
   2.5,
+  10,
+  25,
   50,
   75,
   90,
