@@ -1,9 +1,11 @@
 'use strict'
 
 const percentiles = module.exports.percentiles = [
+  2.5,
   50,
   75,
   90,
+  97.5,
   99,
   99.9,
   99.99,
@@ -29,7 +31,7 @@ module.exports.histAsObj = function (hist, total) {
 
 module.exports.addPercentiles = function (hist, result) {
   percentiles.forEach(function (perc) {
-    const key = ('p' + perc).replace('.', '')
+    const key = ('p' + perc).replace('.', '_')
     if (typeof hist.percentile === 'function') {
       result[key] = hist.percentile(perc)
     } else if (typeof hist.getValueAtPercentile === 'function') {
