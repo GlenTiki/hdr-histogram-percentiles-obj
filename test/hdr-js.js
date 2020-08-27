@@ -81,3 +81,12 @@ test('should return expected numbers', (t) => {
   t.equal(withPercentiles.p99_99, 6)
   t.equal(withPercentiles.p99_999, 6)
 })
+
+test('should return a valid hist as object from a WASM histogram', (t) => {
+  t.plan(1)
+  hdr.initWebAssemblySync()
+  const histogram = hdr.build({
+    useWebAssembly: true
+  })
+  t.ok(histPercentileObj.histAsObj(histogram))
+})
