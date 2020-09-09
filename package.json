@@ -1,6 +1,6 @@
 {
   "name": "hdr-histogram-percentiles-obj",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "A little lib for turning hdr-histogram-js to objects",
   "main": "index.js",
   "scripts": {
