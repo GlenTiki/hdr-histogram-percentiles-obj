@@ -30,6 +30,6 @@
     "tap": "^12.0.1"
   },
   "dependencies": {
-    "hdr-histogram-js": "^1.0.0"
+    "hdr-histogram-js": "^2.0.1"
   }
 }

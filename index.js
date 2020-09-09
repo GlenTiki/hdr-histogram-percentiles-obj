@@ -76,5 +76,8 @@ function getStdDeviation (hist) {
   if (typeof hist.stddev === 'function') {
     return hist.stddev()
   }
-  return hist.getStdDeviation()
+  if (typeof hist.getStdDeviation === 'function') {
+    return hist.getStdDeviation()
+  }
+  return hist.stdDeviation
 }
