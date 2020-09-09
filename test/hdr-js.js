@@ -12,7 +12,7 @@ test('should return a valid hist as object', (t) => {
   })
   let total = 0
   for (let i = 0; i < 10000; i++) {
-    let num = Math.floor(Math.random() * 100)
+    const num = Math.floor(Math.random() * 100)
     histogram.recordValue(num)
     total += num
   }
